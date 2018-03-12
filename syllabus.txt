@@ -1,7 +1,7 @@
 Syllabus
 ========
 
-**BIOF509 - Machine Learning and Object-Oriented Programming with Python**
+**Machine Learning and Object-Oriented Programming with Python**
 
 
 **Spring 2018**
@@ -17,9 +17,6 @@ Teaching assistant:
 * Ryan Dhindsa (ryandhindsa@gmail.com)
 
 Important links:
-
-* `Slack workspace for announcements and assistance: <http://biof509.slack.com/>`_
-
 * `Class grading system <https://okpy.org>`_
 
 
