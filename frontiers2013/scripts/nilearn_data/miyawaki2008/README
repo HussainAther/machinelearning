@@ -1,0 +1,76 @@
+Miyawaki 2008 dataset reformatted for Nisl
+
+Data tree
+---------
+
+root
+  | convert_miyawaki.py
+  | LICENSE
+  | README (this file)
+  + func
+  |   | data_figure_run01.nii.gz
+  |   | data_figure_run02.nii.gz
+  |   | ...
+  |
+  + label
+  |   | data_figure_run01_label.csv
+  |   | data_figure_run01_label.csv
+  |   | ...
+  |
+  + mask
+      | LHlag0to1.nii.gz
+      | LHlag10to11.nii.gz
+      | ...
+
+Motivation
+----------
+
+Miyawaki dataset is available online. However, its format is no easy to use
+with common mri tools and from python. As we had to put it in a more common
+format to use it for our own purpose, we decided to put it also online so
+that people can use it.
+
+The NIfTI format has been chosen for fMRI data. They are easily viewable in
+programs such as mricron or fslview. Same format has been used for masks.
+
+The CSV format has been chosen for labels. In fact, this is easily loadable
+from Python or Matlab. Fortran column order has been kept as it is standard
+in Matlab.
+
+Conversion
+----------
+
+The script used to convert data is provided in this package
+(convert_miyawaki.py).
+
+To run it, you will need :
+- preprocessed .mat files and supple.mat from brainline website:
+    http://brainliner.jp/data/brainliner-admin/Reconstruct
+- a typical neuro-scientific python install including:
+    - scipy
+    - numpy
+    - nibabel (to create NIfTI images)
+    - h5py (to read matlab files)
+- the script convert_miyawaki.py
+
+Then, simply run the script, files will be stored in a folder named
+miyawaki2008.
+$ python convert_miyawaki.py
+
+Useful links
+------------
+
+Original dataset website:
+http://www.cns.atr.jp/dni/en/downloads/fmri-data-set-for-visual-image-reconstruction/
+
+Brainliner website, to download the original dataset:
+http://brainliner.jp/data/brainliner-admin/Reconstruct
+
+Nisl website, on which you can find an automatic dataset downloader and our
+experimentations on this dataset:
+http://nisl.github.com
+
+Contact
+-------
+
+Feel free to contact me: abraham.alexandre@gmail.com
