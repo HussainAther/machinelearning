@@ -1,0 +1,11 @@
+Flask==0.12.2
+Flask-Script==2.0.6
+Flask-WTF==0.14.2
+Mako==1.0.7
+numpy==1.14.2
+scikit-learn==0.19.1
+scipy==1.0.1
+SQLAlchemy==1.1.13
+weblogo==3.6.0
+WTForms==2.1
+pymysql
