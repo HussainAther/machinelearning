@@ -2,4 +2,4 @@ frontiers2013
 .DS_Store
 .ipynb_checkpoints
 *checkpoint*
-checkpoint*
+*.icloud
