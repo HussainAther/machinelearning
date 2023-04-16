@@ -71,3 +71,32 @@ data = data.sample(frac=1).reset_index(drop=True)
 data_sampled = data.loc[data['cancer_type'] < 5]
 X2 = data_sampled.loc[:, data_sampled.columns != 'cancer_type']
 y_sampled = data_sampled['cancer_type'] 
+
+X_train, X_test, y_train, y_test = train_test_split(X2, y_sampled, stratify= y_sampled, test_size=0.3, random_state=42)
+
+y_train.unique()
+
+import sys
+import os
+%config InlineBackend.figure_format = 'retina' # Make visualizations look good
+#%config InlineBackend.figure_format = 'svg' 
+%matplotlib inline
+
+import pandas as pd
+from sklearn.tree import DecisionTreeClassifier
+
+import dtreeviz
+
+random_state = 1234 # get reproducible trees
+
+dt = DecisionTreeClassifier(max_depth=3, random_state=random_state)
+dt.fit(X_train.values, y_train.values)
+
+target = "ACC"
+
+viz_model = dtreeviz.model(dt,
+                           X_train=X_train, y_train=y_train,
+                           feature_names=X_train.columns,
+                           target_name=target, class_names=["ACC", "BLCA", "BRCA", "CESC", "CHOL"])
+viz_model.view(scale=1.0)
+
