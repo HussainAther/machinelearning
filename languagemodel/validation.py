@@ -23,3 +23,25 @@ print(model.summary())
 model.compile(loss='categorical_crossentropy', metrics=['acc'], optimizer='adam')
 # fit the model
 model.fit(X_tr, y_tr, epochs=100, verbose=2, validation_data=(X_val, y_val))
+
+
+# generate a sequence of characters with a language model
+def generate_seq(model, mapping, seq_length, seed_text, n_chars):
+	in_text = seed_text
+	# generate a fixed number of characters
+	for _ in range(n_chars):
+		# encode the characters as integers
+		encoded = [mapping[char] for char in in_text]
+		# truncate sequences to a fixed length
+		encoded = pad_sequences([encoded], maxlen=seq_length, truncating='pre')
+		# predict character
+		yhat = model.predict_classes(encoded, verbose=0)
+		# reverse map integer to character
+		out_char = ''
+		for char, index in mapping.items():
+			if index == yhat:
+				out_char = char
+				break
+		# append to input
+		in_text += char
+	return in_text
