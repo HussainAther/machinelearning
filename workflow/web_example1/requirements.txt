@@ -4,5 +4,5 @@ Flask-WTF==0.14.2
 Mako==1.0.7
 numpy==1.14.2
 scikit-learn==0.19.1
-scipy==1.0.1
+scipy==1.10.0
 WTForms==2.1
